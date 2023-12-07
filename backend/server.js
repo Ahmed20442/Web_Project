@@ -179,18 +179,18 @@ app.delete('/', authMid, async (req, res) => {
     return res.send(await req.user.save());
 });
 
-// app.get('/total', authMid, async (req, res) => {
-//     let total = 0;
+app.get('/total', authMid, async (req, res) => {
+    let total = 0;
 
-//     let products = [];
-//     for (const product of req.user.cart)
-//         products.push(await Product.findById(product));
+    let products = [];
+    for (const product of req.user.cart)
+        products.push(await Product.findById(product));
 
-//     for (const product of products)
-//         total += product.price;
+    for (const product of products)
+        total += product.price;
 
-//     return res.send(String(total));
-// });
+    return res.send(String(total));
+});
 
 
 
